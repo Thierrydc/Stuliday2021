@@ -1,0 +1,101 @@
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 400;
+}
+
+h2 {
+    font-weight: 300;
+}
+
+header {
+    nav {
+        background-color: white;
+        height: 100px;
+        width: 100%;
+        position: fixed;
+        // display: none;
+        z-index: 1;
+        justify-content: space-between;
+        align-items: flex-start;
+        box-shadow: 0 1px 16px rgba(0, 0, 0, .4);
+
+        #menuNav {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            
+            #burger {
+                cursor: pointer;
+                display: none;
+                padding: 0 1rem;
+                position: relative;
+                top: 8px;
+
+                a {
+                    color: $color3;
+                }
+            }
+    
+            #logo {
+                width: 70px;
+    
+                img {
+                    width: 100%;
+                }
+            }
+
+            ul {
+                display: flex;
+                justify-content: space-between;
+                text-transform: uppercase;
+                margin: 1.5rem 0;
+            
+                li {
+                    color: $color3;
+                    cursor: pointer;
+                    font-size: 0.9em;
+    
+                    &:hover a {
+                        color: $color1;
+                        text-decoration: underline;
+
+                    }
+                    a {
+                        color: $color3;
+                        border-left: 1px solid $color3;
+                        padding: 0 1em;
+                    }
+                }
+            } 
+        }
+    }
+
+    .wrapper {
+        @include mtd_center;
+        max-width: 1200px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        >div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 500px;
+            height: 500px;
+            // background-color: #08112A;
+            // opacity: 10%;
+            padding: 3rem;
+            border: 5px solid white;
+
+            h2 {
+                margin: 1rem 0;
+            }
+        }
+    }
+}
