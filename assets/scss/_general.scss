@@ -14,6 +14,10 @@ h2 {
     max-width: 1200px;
 }
 
+.td_button {
+    @include mtd_button();
+}
+
 #accueil {
     color: black;
     height: 100vh;
@@ -22,9 +26,59 @@ h2 {
     justify-content: center;
 }
 
-#products {
+
+#product {
     display: flex;
     justify-content: center;
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+
+        #nameproduct {
+            width: 100%;
+        }
+
+        #photo, #info {
+            padding: 2%;
+            width: 48%;
+        }
+
+        #photo {
+    
+            img {
+                width: 100%;
+            }
+        }
+        
+        #info {
+
+            #price {
+                font-size: 2rem;
+                font-weight: 600;
+                margin: 1rem 0;
+            }
+
+            #description {
+
+                >:nth-child(1) {
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                }
+
+                >:nth-child(2) {
+                    margin: 1rem 0;
+                }
+            }
+
+        }
+        
+    }
+
+    
+
+
+
 }
 
 #profil {
