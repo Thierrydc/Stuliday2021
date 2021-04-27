@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Stuliday 2021</title>
 </head>
 <body>
-<header id="home">
+    <header id="home">
         <nav>
             <div id="menuNav">
                 <div id="logo">
@@ -24,14 +25,4 @@
                 </ul>
             </div>
         </nav>
-        <div class="wrapper">
-            <div>
-                <div>
-                    <h1>Bienvenue sur Stuliday.</h1>
-                    <h2><a href="products.php">Cliquez pour allez sur la liste des produits</a></h2>
-                    
-                </div>
-            </div>
-        </div>
-
     </header>

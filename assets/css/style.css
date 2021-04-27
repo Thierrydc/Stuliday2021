@@ -15,18 +15,42 @@ a {
 }
 
 /* -----------------------------  END RESET ------------------------------ */
+h1 {
+  font-size: 2.5em;
+  font-weight: 400;
+  margin-top: 10rem;
+}
+
+h2 {
+  font-weight: 300;
+}
+
 .wrapper {
   margin: 0 auto;
   max-width: 1200px;
 }
 
-h1 {
-  font-size: 2.5em;
-  font-weight: 400;
+#accueil {
+  color: black;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-h2 {
-  font-weight: 300;
+#products {
+  display: flex;
+  justify-content: center;
+}
+
+#profil {
+  display: flex;
+  justify-content: center;
+}
+
+#connect {
+  display: flex;
+  justify-content: center;
 }
 
 header nav {
@@ -80,30 +104,6 @@ header nav #menuNav ul li a {
   color: #08112A;
   border-left: 1px solid #08112A;
   padding: 0 1em;
-}
-header .wrapper {
-  text-align: center;
-  margin: 0 auto;
-  max-width: 100%;
-  max-width: 1200px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-header .wrapper > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 500px;
-  height: 500px;
-  padding: 3rem;
-  border: 5px solid white;
-}
-header .wrapper > div h2 {
-  margin: 1rem 0;
 }
 
 footer {

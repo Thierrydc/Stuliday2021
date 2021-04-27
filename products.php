@@ -1,2 +1,12 @@
+<?php include('inc/header.php'); ?>
 
-    <h1>Page des produits</h1>
+    <div  id="products">
+        <div class="wrapper">
+            <div>
+                <h1>Page des Produits</h1>
+                
+            </div>
+        </div>
+    </div>
+
+<?php include('inc/footer.php'); ?>

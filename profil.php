@@ -1,2 +1,12 @@
+<?php include('inc/header.php'); ?>
 
-<h1>page profil utilisateur</h1>
+    <div  id="profil">
+        <div class="wrapper">
+            <div>
+                <h1>Profil utilisateur</h1>
+                
+            </div>
+        </div>
+    </div>
+
+<?php include('inc/footer.php'); ?>
