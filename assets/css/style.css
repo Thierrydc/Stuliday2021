@@ -60,7 +60,7 @@ h2 {
 #product .content #nameproduct {
   width: 100%;
 }
-#product .content #photo, #product .content #info {
+#product .content > div {
   padding: 2%;
   width: 48%;
 }
