@@ -21,8 +21,13 @@
                 <ul>
                     <li><a href="products.php">Produits</a></li>
                     <li><a href="profil.php">Mon profil</a></li>
-                    <li><a href="connect.php">Connexion</a></li>
+                    <li><a href="login.php">Connexion</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+
+    <p style="color:red; font-size:20px; font-weigh:bold">
+        <?php  require 'inc/config.php'; ?>
+    </p>
+   

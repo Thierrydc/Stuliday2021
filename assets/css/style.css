@@ -85,17 +85,28 @@ h2 {
   justify-content: center;
 }
 
-#connect {
+#login, #signin {
   display: flex;
   justify-content: center;
+}
+#login form, #signin form {
+  display: flex;
+  flex-direction: column;
+}
+#login form input, #signin form input {
+  font-size: 1.2rem;
+  border: 1px solid black;
+  margin: 1rem 0;
+}
+#login .content p, #signin .content p {
+  padding: 2rem 0;
 }
 
 header nav {
   background-color: white;
   height: 100px;
   width: 100%;
-  position: fixed;
-  z-index: 1;
+  top: 0;
   justify-content: space-between;
   align-items: flex-start;
   box-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
