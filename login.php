@@ -71,12 +71,14 @@
                     <h1 class="block">Se connecter</h1>
                     <form action="#" method="post">
                         <div class="field">
-                            <input type="text" name="email" placeholder="Votre email">
+                            <label for="InputEmail">Adresse mail</label>
+                            <input class="input" type="text" name="email" id="InputEmail" required>
                         </div>
                         <div class="field">
-                            <input type="text" name="password" placeholder="mot de passe">
+                            <label for="InputPassword">Entrez votre mot de passe</label>
+                            <input class="input" type="password" name="password" id="InputPassword" required>
                         </div>
-                        <input class="button" type="submit" name="submit">
+                        <input class="button" type="submit" name="submit" value="Se connecter">
                     </form>
                     <hr>
                     <div id="signin">
