@@ -29,7 +29,7 @@
                     <?php
                     } else {
                     ?>
-                        <li><a href="profile.php"><?php echo $_SESSION['username']; ?></a></li>
+                        <li><a href="profile.php"><?php echo $_SESSION['name']; ?></a></li>
                         <li><a href="?logout">Se déconnecter</a></li>
                     <?php
                     }

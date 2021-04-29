@@ -18,7 +18,7 @@
                 if(password_verify($password, $dbpassword)){
                     $_SESSION['id'] = $user['id'];
                     $_SESSION['email'] = $user['email'];
-                    $_SESSION['username'] = $user['username'];
+                    $_SESSION['name'] = $user['name'];
                     echo "Vous êtes désormais connecté";
                     unset($_POST);
                     header('Location: profile.php');

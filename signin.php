@@ -21,7 +21,7 @@
                 $countMail = $resultMail->fetchColumn();
                 if(!$countMail){  
                     // Vérification username dans la BDD : Pour que l'username ne soit pas existant
-                    $sqlUsername = "SELECT * FROM users WHERE username = '{$username}'";
+                    $sqlUsername = "SELECT * FROM users WHERE name = '{$username}'";
                     $resultUsername = $connect->query($sqlUsername);
                     $countUsername = $resultUsername->fetchColumn();
                     if(!$countUsername){
@@ -30,7 +30,7 @@
                             // Hashage du mdp : Crypter le mot de passe
                             $hashedPassword = password_hash($password1, PASSWORD_DEFAULT);
                             // Enregistrement données utilisateur
-                            $sth = $connect->prepare("INSERT INTO users (email,username,password) VALUES (:email,:username,:password)");
+                            $sth = $connect->prepare("INSERT INTO users (email,name,password) VALUES (:email,:username,:password)");
                             // Assainissement des variables
                             $sth->bindValue(':email', $email);
                             $sth->bindValue(':username', $username);

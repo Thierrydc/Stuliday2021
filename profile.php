@@ -17,7 +17,7 @@
                 <div class="column is-8">
                     <div class="content">
                         <!-- //* Affichage des infos username et role récupérées depuis la BDD -->
-                        <h2>Bienvenue <?php echo $user['username']?></h2>
+                        <h2>Bienvenue <?php echo $user['name']?></h2>
                         <p>Vous possédez le role <?php echo $user['role']?></p>
                     </div>
                 </div>
