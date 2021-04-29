@@ -30,7 +30,9 @@
             //? Etape 4 : Enregistrement des données du formulaire via une requete préparée sql INSERT
             try {
                //? Préparation de la requête, je définis la requête à exécuter avec des valeurs génériques (des paramètres nommés).
-               $sth = $connect->query("INSERT INTO products (name, description, price, category_id, author_id) VALUES (:name, :description, :price, :category, :author)");
+               $sth = $connect->prepare(
+                   "INSERT INTO products (name, description, price, category_id, author_id) VALUES (:name, :description, :price, :category, :author)"
+                );
                //? J'affecte chacun des paramètres nommés à leur valeur via un bindValue. Cette opération me protège des injections SQL (en + de l'assainissement des variables)
                $sth->bindValue(':name', $name);
                $sth->bindValue(':description', $description);
