@@ -21,6 +21,7 @@
                     $_SESSION['username'] = $user['username'];
                     echo "Vous êtes désormais connecté";
                     unset($_POST);
+                    header('Location: profile.php');
                 } else {
                     echo "Le mot de passe est erroné";
                     unset($_POST);
