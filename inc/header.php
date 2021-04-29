@@ -12,7 +12,7 @@
 <body>
     <header id="home">
         <nav>
-            <div id="menuNav">
+            <div id="menuNav" class="container">
                 <div id="logo">
                     <a href="index.php">Stuliday</a> 
                 </div>
@@ -25,12 +25,12 @@
                     <?php
                     if(empty($_SESSION)) {
                     ?>
-                        <a href="login.php">Se connecter</a>
+                        <li><a href="login.php">Se connecter</a></li>
                     <?php
                     } else {
                     ?>
-                        <a href="profile.php"><?php echo $_SESSION['username']; ?></a>
-                        <a href="?logout">Se déconnecter</a>
+                        <li><a href="profile.php"><?php echo $_SESSION['username']; ?></a></li>
+                        <li><a href="?logout">Se déconnecter</a></li>
                     <?php
                     }
                     ?>
