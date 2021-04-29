@@ -98,19 +98,23 @@
                     <h1 class="block">S'inscrire</h1>
                     <form action="#" method="post">
                         <div class="field">
-                            <input class="input" type="text" name="email" placeholder="Votre email" required>
+                            <label for="InputEmail">Adresse mail</label>
+                            <input class="input" type="text" name="email" id="InputEmail" required>
                         </div>
                         <div class="field">
-                            <input class="input" type="text" name="username" placeholder="choisissez un login" required>
+                            <label for="InputUsername">Nom d'utilisateur</label>
+                            <input class="input" type="text" name="username" id="InputUsername" required>
                         </div>
                         <div class="field">
-                            <input class="input" type="text" name="password1" placeholder="choisissez un mot de passe" required>
+                            <label for="InputPassword">Choisissez un mot de passe</label>
+                            <input class="input" type="password" name="password1" id="InputPassword" required>
                         </div>
                         <div class="field">
-                            <input class="input" type="text" name="password2" placeholder="confirmez ce mot de passe" required>
+                            <label for="InputPassword2">Entrez votre mot de passe de nouveau</label>
+                            <input class="input" type="password" name="password2" id="InputPassword2" required>
                         </div>
                         <div class="field">
-                            <input class="button block" type="submit" name="submit">
+                            <input class="button block" type="submit" name="submit" value="S'inscrire">
                         </div>
                     </form>
                     <hr>

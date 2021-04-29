@@ -18,7 +18,7 @@
 <div id="addproducts">
     <div class="container">
         <div class="columns is-centered">
-            <div class="column is-4">
+            <div class="column is-12">
                 <div class="content">
                     <h1 class="block">Ajout de produits</h1>
                 </div>
