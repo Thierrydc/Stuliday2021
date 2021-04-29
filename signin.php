@@ -91,21 +91,36 @@
 
 
 <div id="signin">
-    <div class="wrapper">
-        <div class="content">
-            <h1>S'inscrire</h1>
-            <form action="#" method="post">
-                <input type="text" name="email" placeholder="Votre email" required>
-                <input type="text" name="username" placeholder="choisissez un login" required>
-                <input type="text" name="password1" placeholder="choisissez un mot de passe" required>
-                <input type="text" name="password2" placeholder="confirmez ce mot de passe" required>
-                <input class="td_button" type="submit" name="submit">
-            </form>
-            <hr>
-            <div>
-                <p>Déja inscrits ? <a href="./login.php">Connectez-vous ici </a></p>
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-4">
+                <div id="content">
+                    <h1 class="block">S'inscrire</h1>
+                    <form action="#" method="post">
+                        <div class="field">
+                            <input class="input" type="text" name="email" placeholder="Votre email" required>
+                        </div>
+                        <div class="field">
+                            <input class="input" type="text" name="username" placeholder="choisissez un login" required>
+                        </div>
+                        <div class="field">
+                            <input class="input" type="text" name="password1" placeholder="choisissez un mot de passe" required>
+                        </div>
+                        <div class="field">
+                            <input class="input" type="text" name="password2" placeholder="confirmez ce mot de passe" required>
+                        </div>
+                        <div class="field">
+                            <input class="button block" type="submit" name="submit">
+                        </div>
+                    </form>
+                    <hr>
+                    <div id="login">
+                        <p>Déja inscrits ? <a href="./login.php">Connectez-vous ici</a></p>
+                    </div>
+                </div>
             </div>
         </div>
+        
     </div>
 </div>
 

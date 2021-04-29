@@ -1,22 +1,13 @@
-
 h1 {
-    font-size: 2.5em;
-    font-weight: 400;
-    margin-top: 10rem;
+    font-size: 2rem;
+    margin-top: 8rem;
+    text-align: center;
 }
 
-h2 {
-    font-weight: 300;
-}
-
-.wrapper {
-    margin: 0 auto;
-    max-width: 1200px;
-}
-
-.td_button {
-    @include mtd_button();
-}
+// *.wrapper {
+//     margin: 0 auto;
+//     max-width: 1200px;
+// }
 
 #accueil {
     color: black;
@@ -86,26 +77,9 @@ h2 {
     justify-content: center;
 }
 
-#login, #signin {
-    
-    display: flex;
-    justify-content: center;
+#signin {
 
-    form {
-        display: flex;
-        flex-direction: column;
-
-        input {
-            font-size: 1.2rem;
-            border: 1px solid black;
-            margin: 1rem 0;
-        }
+    #login {
+        margin-bottom: 2rem;
     }
-
-    .content {
-        p {
-            padding: 2rem 0;
-        }
-    }
-    
 }
