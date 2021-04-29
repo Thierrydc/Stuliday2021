@@ -69,7 +69,7 @@
             <form action="#" method="post">
                 <input type="text" name="email" placeholder="Votre email">
                 <input type="text" name="password" placeholder="mot de passe">
-                <input class="td_button" type="submit" name="submit">
+                <input class="button" type="submit" name="submit">
             </form>
             <hr>
             <div>
