@@ -34,7 +34,7 @@
         }
     }
 
-    /**
+    /** 
      * ! Etapes logiques de l'inscription
      * 
      * // TODO Vérification intro
@@ -63,17 +63,25 @@
 
 
 <div id="login">
-    <div class="wrapper">
-        <div class="content">
-            <h1>Se connecter</h1>
-            <form action="#" method="post">
-                <input type="text" name="email" placeholder="Votre email">
-                <input type="text" name="password" placeholder="mot de passe">
-                <input class="button" type="submit" name="submit">
-            </form>
-            <hr>
-            <div>
-                <p>Vous ne possédez pas de compte ? <a href="./signin.php">Inscrivez-vous ici </a></p>
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-4">
+                <div id="content">
+                    <h1 class="block">Se connecter</h1>
+                    <form action="#" method="post">
+                        <div class="field">
+                            <input type="text" name="email" placeholder="Votre email">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="password" placeholder="mot de passe">
+                        </div>
+                        <input class="button" type="submit" name="submit">
+                    </form>
+                    <hr>
+                    <div id="signin">
+                        <p>Vous ne possédez pas de compte ? <a href="./signin.php">Inscrivez-vous ici </a></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
