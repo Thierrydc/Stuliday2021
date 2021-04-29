@@ -67,7 +67,7 @@
     <div class="container">
         <div class="columns is-centered">
             <div class="column is-4">
-                <div id="content">
+                <div class="content">
                     <h1 class="block">Se connecter</h1>
                     <form action="#" method="post">
                         <div class="field">
