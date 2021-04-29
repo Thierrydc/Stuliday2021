@@ -11,3 +11,9 @@ try {
     // echo "Erreur: { $error->getMessage() }";
 
 }
+
+//? Si je reçois une requête GET avec l'info 'logout', alors je dois supprimer la session et rediriger vers la page d'Accueil
+if(isset($_GET['logout'])){
+    session_destroy();
+    header('Location: index.php');
+}

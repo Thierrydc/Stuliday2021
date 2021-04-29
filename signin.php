@@ -115,7 +115,7 @@
                     </form>
                     <hr>
                     <div id="login">
-                        <p>Déja inscrits ? <a href="./login.php">Connectez-vous ici</a></p>
+                        <p>Déja inscrits ?<a href="./login.php">Connectez-vous ici</a></p>
                     </div>
                 </div>
             </div>

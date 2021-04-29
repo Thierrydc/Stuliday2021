@@ -1,3 +1,4 @@
+<?php  require 'inc/config.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,14 +21,22 @@
                 </div>
                 <ul>
                     <li><a href="products.php">Produits</a></li>
-                    <li><a href="profil.php">Mon profil</a></li>
-                    <li><a href="login.php">Connexion</a></li>
+                    <!-- //? Affichage conditionnel du bouton se connecter/ page de profil -->
+                    <?php
+                    if(empty($_SESSION)) {
+                    ?>
+                        <a href="login.php">Se connecter</a>
+                    <?php
+                    } else {
+                    ?>
+                        <a href="profile.php"><?php echo $_SESSION['username']; ?></a>
+                        <a href="?logout">Se déconnecter</a>
+                    <?php
+                    }
+                    ?>
+                    
                 </ul>
             </div>
         </nav>
     </header>
-
-    <p style="color:red; font-size:20px; font-weigh:bold">
-        <?php  require 'inc/config.php'; ?>
-    </p>
    
