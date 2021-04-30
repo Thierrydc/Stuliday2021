@@ -46,8 +46,6 @@
                //? J'exécute ma requête SQL d'insertion avec execute()
                 $sth->execute();
                 echo "Votre annonce a bien été ajoutée";
-                //? Je redirige vers la page des produits.
-                header('Location: products.php');
             } catch (PDOException $error) {
                 echo "Erreur : " . $error->getMessage();
             }
