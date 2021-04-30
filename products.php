@@ -6,7 +6,7 @@
 //? Création de ma requête SQL. Vu que j'ai des colonne qui font référence à d'autres tables, je dois ajouter des jointures sur category et author.
 $sth = $connect->query(
     "SELECT title, c.name as category, bedroom_number, surface, price
-    FROM biens as b 
+    FROM biens as b
     LEFT JOIN categories as c ON b.category_id=c.id
     LEFT JOIN users as u ON b.author_id = u.id
     ");
@@ -20,18 +20,25 @@ $locations = $sth->fetchAll(PDO::FETCH_ASSOC);
 <div id="products">
     <div class="container">
         <div class="columns is-centered">
-            <div class="column is-4">
-                <div class="content">
+            <div class="column">
+                <div class="content is-flex">
                     <?php
                         foreach ($locations as $location) {
                     ?>
-                            <div class="card">
-                            <h5><?php echo $location['title'] ?></h5>
-                            <p>Catégorie du bien : <?php echo $location['category'] ?></p>
-                            <p>Nombre de chambres : <?php echo $location['bedroom_number'] ?></p>
-                            <p>Surface en m2 : <?php echo $location['surface'] ?>m2</p>
-                            <p>Prix de la location à la semaine : <?php echo $location['price'] ?>€</p>
-                            </div>
+                    <div class="is-4">
+                        <div class="card">
+                            <a href="product.php?id=2"> <!-- //! ID à changer !!-->
+                                <div class="card-content">
+                                    <h5><?php echo $location['title'] ?></h5>
+                                    <p>Catégorie du bien : <?php echo $location['category'] ?></p>
+                                    <p>Nombre de chambres : <?php echo $location['bedroom_number'] ?></p>
+                                    <p>Surface en m2 : <?php echo $location['surface'] ?>m2</p>
+                                    <p>Prix de la location à la semaine : <?php echo $location['price'] ?>€</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                                
                     <?php
                         }
                     ?>
