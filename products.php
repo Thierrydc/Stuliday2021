@@ -5,7 +5,7 @@
 
 //? Création de ma requête SQL. Vu que j'ai des colonne qui font référence à d'autres tables, je dois ajouter des jointures sur category et author.
 $sth = $connect->query(
-    "SELECT title, c.name as category, bedroom_number, surface, price
+    "SELECT b.id, title, c.name as category, bedroom_number, surface, price
     FROM biens as b
     LEFT JOIN categories as c ON b.category_id=c.id
     LEFT JOIN users as u ON b.author_id = u.id
@@ -27,7 +27,7 @@ $locations = $sth->fetchAll(PDO::FETCH_ASSOC);
                     ?>
                     <div class="is-4">
                         <div class="card">
-                            <a href="product.php?id=2"> <!-- //! ID à changer !!-->
+                            <a href="product.php?id=<?php echo $location['id'] ?>">
                                 <div class="card-content">
                                     <h5><?php echo $location['title'] ?></h5>
                                     <p>Catégorie du bien : <?php echo $location['category'] ?></p>
