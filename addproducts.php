@@ -38,7 +38,7 @@
                $sth->bindValue(':title', $title);
                $sth->bindValue(':description', $description);
                $sth->bindValue(':bedroom_number', $bedroom_number);
-               $sth->bindValue(':surface', $bedroom_number);
+               $sth->bindValue(':surface', $surface);
                $sth->bindValue(':price', $price);
                $sth->bindValue(':category', $category);
                $sth->bindValue(':author', $user_id);
