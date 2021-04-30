@@ -16,11 +16,18 @@
     $categories = $connect->query('SELECT * FROM categories')->fetchAll();
 
     //Vérification intro : si le bouton est cliqué et si le formulaire est rempli
-    if(isset($_POST['submit']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['category']) && !empty($_POST['bedroom_number'])){
+    if(isset($_POST['submit']) 
+    && !empty($_POST['title']) 
+    && !empty($_POST['surface']) 
+    && !empty($_POST['description']) 
+    && !empty($_POST['price']) 
+    && !empty($_POST['category']) 
+    && !empty($_POST['bedroom_number'])){
         
         //Initialisation des variables & assainissement
         $title = strip_tags($_POST['title']);
         $description = strip_tags($_POST['description']);
+        $surface = intval(strip_tags($_POST['surface']));
         $price = intval(strip_tags($_POST['price']));
         $category = strip_tags($_POST['category']);
         $bedroom_number = intval(strip_tags($_POST['bedroom_number']));
