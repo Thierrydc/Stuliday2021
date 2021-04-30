@@ -1,8 +1,7 @@
 <?php include('inc/header.php'); ?>
-<p style="color:red; font-size:20px; font-weigh:bold">
 
 <?php
-    
+    $alert = false;
     if(!empty($_POST['email']) && !empty($_POST['password']) && isset($_POST['submit'])){
         
         $email = htmlspecialchars($_POST['email']);
@@ -19,15 +18,16 @@
                     $_SESSION['id'] = $user['id'];
                     $_SESSION['email'] = $user['email'];
                     $_SESSION['name'] = $user['name'];
-                    echo "Vous êtes désormais connecté";
+
+                    $alert = true; $type = "success"; $message = "Vous êtes désormais connecté";
                     unset($_POST);
                     header('Location: profile.php');
                 } else {
-                    echo "Le mot de passe est erroné";
+                    $alert = true; $type = "warning"; $message = "Le mot de passe est erroné !";
                     unset($_POST);
                 }
             }else{
-                echo "Ce compte n'existe pas";
+                $alert = true; $type = "warning"; $message = "Ce compte n'existe pas !";
                 unset($_POST);
             }
         } catch(PDOException $error) {
@@ -66,13 +66,14 @@
 <div id="login">
     <div class="container">
         <div class="columns is-centered">
-            <div class="column is-4">
+            <div class="column is-6">
                 <div class="content">
                     <h1 class="block">Se connecter</h1>
+                    <?php require 'inc/alert.php' ?>
                     <form action="#" method="post">
                         <div class="field">
                             <label for="InputEmail">Adresse mail</label>
-                            <input class="input" type="text" name="email" id="InputEmail" required>
+                            <input class="input" type="email" name="email" id="InputEmail" required>
                         </div>
                         <div class="field">
                             <label for="InputPassword">Entrez votre mot de passe</label>

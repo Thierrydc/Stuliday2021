@@ -1,0 +1,40 @@
+[1mdiff --git a/login.php b/login.php[m
+[1mindex 89e8a22..ef1fa3e 100644[m
+[1m--- a/login.php[m
+[1m+++ b/login.php[m
+[36m@@ -1,8 +1,7 @@[m
+ <?php include('inc/header.php'); ?>[m
+[31m-<p style="color:red; font-size:20px; font-weigh:bold">[m
+ [m
+ <?php[m
+[31m-    [m
+[32m+[m
+     if(!empty($_POST['email']) && !empty($_POST['password']) && isset($_POST['submit'])){[m
+         [m
+         $email = htmlspecialchars($_POST['email']);[m
+[36m@@ -19,15 +18,22 @@[m
+                     $_SESSION['id'] = $user['id'];[m
+                     $_SESSION['email'] = $user['email'];[m
+                     $_SESSION['name'] = $user['name'];[m
+[31m-                    echo "Vous êtes désormais connecté";[m
+[32m+[m
+[32m+[m[32m                    $alert = true;[m
+[32m+[m[32m                    $type = "warning";[m
+[32m+[m[32m                    $message = "Vous êtes désormais connecté";[m
+                     unset($_POST);[m
+                     header('Location: profile.php');[m
+                 } else {[m
+[31m-                    echo "Le mot de passe est erroné";[m
+[32m+[m[32m                    $alert = true;[m
+[32m+[m[32m                    $type = "warning";[m
+[32m+[m[32m                    $message = "Le mot de passe est erroné";[m
+                     unset($_POST);[m
+                 }[m
+             }else{[m
+[31m-                echo "Ce compte n'existe pas";[m
+[32m+[m[32m                $alert = true;[m
+[32m+[m[32m                $type = "warning";[m
+[32m+[m[32m                $message = "Ce compte n'existe pas";[m
+                 unset($_POST);[m
+             }[m
+         } catch(PDOException $error) {[m

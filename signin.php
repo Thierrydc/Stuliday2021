@@ -3,7 +3,7 @@
 <p style="color:red; font-size:20px; font-weigh:bold">
 
 <?php
-    // echo "chargement PHP ok";
+    $alert = false;
     // Vérification intro
     if(!empty($_POST['email']) && !empty($_POST['password1']) && !empty($_POST['password2']) && !empty($_POST['username']) &&  isset($_POST['submit'])){
         // Initialisation variables
@@ -36,22 +36,22 @@
                             $sth->bindValue(':username', $username);
                             $sth->bindValue(':password', $hashedPassword);
                             $sth->execute();
-                            echo "L'utilisateur a bien été enregistré !";
+                            $alert = true; $type = "success"; $message = "L'utilisateur a bien été enregistré !";
                             // Ajout des messages d'erreur
                         } else {
-                            echo "Les mots de passe ne sont pas concordants.";
+                            $alert = true; $type = "warning"; $message = "Les mots de passe ne sont pas concordants !";
                             unset($_POST);
                         }
                     } else {
-                        echo " Ce nom d'utilisateur existe déja";
+                        $alert = true; $type = "warning"; $message = "Ce nom d'utilisateur existe déja !";
                         unset($_POST);
                     }
                 }else{
-                    echo "Un compte existe déja pour cette adresse mail";
+                    $alert = true; $type = "warning"; $message = "Un compte existe déja pour cette adresse mail !";
                     unset($_POST);
                 }
             } else {
-                echo "L'adresse email saisie n'est pas valide";
+                $alert = true; $type = "warning"; $message = "L'adresse email saisie n'est pas valide !";
                 unset($_POST);
             }
             
@@ -96,6 +96,7 @@
             <div class="column is-4">
                 <div class="content">
                     <h1 class="block">S'inscrire</h1>
+                    <?php require 'inc/alert.php' ?>
                     <form action="#" method="post">
                         <div class="field">
                             <label for="InputEmail">Adresse mail</label>

@@ -12,7 +12,7 @@
      * 
      * TODO : Enregistrement des données
      */
-
+    $alert= false;
     $categories = $connect->query('SELECT * FROM categories')->fetchAll();
 
     //Vérification intro : si le bouton est cliqué et si le formulaire est rempli
@@ -52,7 +52,7 @@
 
                //? J'exécute ma requête SQL d'insertion avec execute()
                 $sth->execute();
-                echo "Votre annonce a bien été ajoutée";
+                $alert = true; $type="success"; $message = "Votre annonce a bien été ajoutée";
             } catch (PDOException $error) {
                 echo "Erreur : " . $error->getMessage();
             }
@@ -72,6 +72,7 @@
             <div class="column is-12">
                 <div class="content">
                     <h1 class="block">Ajout d'une location</h1>
+                    <?php require 'inc/alert.php' ?>
                     <form action="#" method="post">
                         <div class="field">
                             <label for="inputTitle" required>Titre de votre annonce</label>
