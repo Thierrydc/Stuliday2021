@@ -1,6 +1,7 @@
 <?php include('inc/header.php'); ?>
 
 <?php
+try {
     //? J'insère la valeur de l'id de ma requête GET dans une variable qui va me servir à récupérer un produit depuis la BDD
     $id = $_GET['id'];
 
@@ -14,6 +15,10 @@
 
     //? Le résultat de ma requête est affiché dans un tableau associatif à l'aide du chaînage de méthodes.
     $annonce = $sth->fetch(PDO::FETCH_ASSOC);
+} catch (PDOException $error) {
+    echo $error->message();
+}
+
 
 ?>
 
