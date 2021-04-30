@@ -3,17 +3,22 @@
 <?php
 //! Affichage de tous les produits. Il faudra une requête SQL qui récupère tous les produits, et qui les affiche dans des cartes séparées.
 
-//? Création de ma requête SQL. Vu que j'ai des colonne qui font référence à d'autres tables, je dois ajouter des jointures sur category et author.
-$sth = $connect->query(
+try {
+    //? Création de ma requête SQL. Vu que j'ai des colonne qui font référence à d'autres tables, je dois ajouter des jointures sur category et author.
+    $sth = $connect->query(
     "SELECT b.id, title, c.name as category, bedroom_number, surface, price
     FROM biens as b
     LEFT JOIN categories as c ON b.category_id=c.id
     LEFT JOIN users as u ON b.author_id = u.id
     ");
 
-//? Le résultat de ma requête est affiché dans un tableau associatif à l'aide du chaînage de méthodes.
-$locations = $sth->fetchAll(PDO::FETCH_ASSOC);
-// var_dump($locations);
+    //? Le résultat de ma requête est affiché dans un tableau associatif à l'aide du chaînage de méthodes.
+    $locations = $sth->fetchAll(PDO::FETCH_ASSOC);
+    
+} catch (PDOException $error) {
+    echo $error->getMessage();
+}
+
 ?>
 
 
