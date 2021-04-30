@@ -1,6 +1,7 @@
 <?php include('inc/header.php'); ?>
 
 <?php
+    $alert=false;
     if(!empty($_SESSION)) {
         try {
             //! Récupérer toutes les infos relatives à l'utilisateur connecté depuis la base de données. En ce moment dans le token de session on possède l'id de l'utilisateur, son username et son email. Il faut éventuellement récupérer tout le reste depuis la base de données.
@@ -11,34 +12,33 @@
             $sth = $connect->query("SELECT * FROM users WHERE id='{$user_id}' ");
             //? 4. On récupère les données avec un fetch, en précisant que l'on souhaite obtenir les données sous forme de tableau associatif (PDO::FETCH_ASSOC)
             $user = $sth->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $error) {
-            echo $error->message();
-        }
 ?>
-        <div id="profil">
-            <div class="container">
-                <div class="columns is-centered">
-                    <div class="column is-8">
-                        <div class="content">
-                            <!-- //* Affichage des infos username et role récupérées depuis la BDD -->
-                            <h2>Bienvenue <?php echo $user['name']?></h2>
-                            <p>Vous possédez le role <?php echo $user['role']?></p>
-                        </div>
-                    </div>
-                    <div class="column is-4">
-                        <div class="content">
-                            <button type="button" class="button">Voir mes annonces publiées</button>
-                            <a href="addproducts.php" class="button"> Ajouter une annonce </a>
+                <div id="profil">
+                    <div class="container">
+                        <div class="columns is-centered">
+                            <div class="column is-8">
+                                <div class="content">
+                                    <!-- //* Affichage des infos username et role récupérées depuis la BDD -->
+                                    <h2>Bienvenue <?php echo $user['name']?></h2>
+                                    <p>Vous possédez le role <?php echo $user['role']?></p>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <div class="content">
+                                    <button type="button" class="button">Voir mes annonces publiées</button>
+                                    <a href="addproducts.php" class="button"> Ajouter une annonce </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-
 <?php
+        } catch (PDOException $error) {
+            echo $error->message();
+        }
     } else {
-?>      <div class="container">
+?>      
+        <div class="container">
             <div class="columns is-centered">
                 <div class="column is-8">
                     <article class='message is-warning'>
