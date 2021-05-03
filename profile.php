@@ -13,25 +13,27 @@
             //? 4. On récupère les données avec un fetch, en précisant que l'on souhaite obtenir les données sous forme de tableau associatif (PDO::FETCH_ASSOC)
             $user = $sth->fetch(PDO::FETCH_ASSOC);
 ?>
-                <div id="profil">
-                    <div class="container">
-                        <div class="columns is-centered">
-                            <div class="column is-8">
-                                <div class="content">
-                                    <!-- //* Affichage des infos username et role récupérées depuis la BDD -->
-                                    <h2>Bienvenue <?php echo $user['name']?></h2>
-                                    <p>Vous possédez le role <?php echo $user['role']?></p>
-                                </div>
-                            </div>
-                            <div class="column is-4">
-                                <div class="content">
-                                    <button type="button" class="button">Voir mes annonces publiées</button>
-                                    <a href="addproducts.php" class="button"> Ajouter une annonce </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+<section id="profil">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <!-- //* Affichage des infos username et role récupérées depuis la BDD -->
+                    <h2>Bienvenue <?php echo $user['name']?></h2>
+                    <p>Vous possédez le role <?php echo $user['role']?></p>
                 </div>
+            </div>
+            <div class="column is-4">
+                <div class="content">
+                    <button type="button" class="button">Voir mes annonces publiées</button>
+                    <a href="addproducts.php" class="button"> Ajouter une annonce </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <?php
         } catch (PDOException $error) {
             echo $error->message();

@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css";
 /*! https://mubaidr.github.io/bulma-pro | MIT License | github.com/mubaidr/bulma-pro */
 /*! bulma.io v0.8.2 | MIT License | github.com/jgthms/bulma */
 @-webkit-keyframes spinAround {

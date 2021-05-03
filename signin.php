@@ -90,7 +90,7 @@
 </p>
 
 
-<div id="signin">
+<section id="signin">
     <div class="container">
         <div class="columns is-centered">
             <div class="column is-4">
@@ -127,7 +127,7 @@
         </div>
         
     </div>
-</div>
+</section>
 
 
 

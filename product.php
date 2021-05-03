@@ -23,7 +23,7 @@ try {
 ?>
 
 <!-- //? Ici pas besoin de boucle, puisque je ne récupère qu'un seul produit. -->
-<div id="product">
+<section id="product">
     <div class="container">
         <div class="columns is-centered">
             <div class="column is-8">
@@ -38,6 +38,6 @@ try {
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <?php include('inc/footer.php'); ?>

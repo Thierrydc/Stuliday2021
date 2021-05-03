@@ -63,7 +63,7 @@
 </p>
 
 
-<div id="login">
+<section id="login">
     <div class="container">
         <div class="columns is-centered">
             <div class="column is-6">
@@ -89,6 +89,6 @@
             </div>
         </div>
     </div>
-</div>
+</section>
     
 <?php include('inc/footer.php'); ?>

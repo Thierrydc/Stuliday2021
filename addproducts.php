@@ -66,7 +66,7 @@
 //? Je redirige vers la page des produits.
 -->
 
-<div id="addproducts">
+<section id="addproducts">
     <div class="container">
         <div class="columns is-centered">
             <div class="column is-12">
@@ -115,6 +115,6 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <?php include('inc/footer.php'); ?>

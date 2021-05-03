@@ -21,37 +21,36 @@ try {
 
 ?>
 
+<h1>Recherche annonces</h3>
 
-<div id="products">
+<section id="products">
     <div class="container">
-        <div class="columns is-centered">
-            <div class="column">
-                <div class="content is-flex">
+        <div class="columns is-centered is-3">
+            <div class="column is-flex is-flex-wrap-wrap">
+                <!-- <div class=""> -->
                     <?php
                         foreach ($locations as $location) {
                     ?>
-                    <div class="is-4">
-                        <div class="card">
-                            <a href="product.php?id=<?php echo $location['id'] ?>">
-                                <div class="card-content">
-                                    <h5><?php echo $location['title'] ?></h5>
-                                    <p>Catégorie du bien : <?php echo $location['category'] ?></p>
-                                    <p>Nombre de chambres : <?php echo $location['bedroom_number'] ?></p>
-                                    <p>Surface en m2 : <?php echo $location['surface'] ?>m2</p>
-                                    <p>Prix de la location à la semaine : <?php echo $location['price'] ?>€</p>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="card is-4">
+                        <a href="product.php?id=<?php echo $location['id'] ?>">
+                            <div class="card-content">
+                                <h5><?php echo $location['title'] ?></h5>
+                                <p>Catégorie du bien : <?php echo $location['category'] ?></p>
+                                <p>Nombre de chambres : <?php echo $location['bedroom_number'] ?></p>
+                                <p>Surface en m2 : <?php echo $location['surface'] ?>m2</p>
+                                <p>Prix de la location à la semaine : <?php echo $location['price'] ?>€</p>
+                            </div>
+                        </a>
                     </div>
-                                
+
                     <?php
                         }
                     ?>
                     
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <?php include('inc/footer.php'); ?>
