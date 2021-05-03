@@ -10895,6 +10895,10 @@ h1 {
   justify-content: center;
 }
 
+#products .card {
+  max-width: 30% !important;
+}
+
 header nav {
   background-color: white;
   height: 80px;

@@ -6,7 +6,7 @@
 try {
     //? Création de ma requête SQL. Vu que j'ai des colonne qui font référence à d'autres tables, je dois ajouter des jointures sur category et author.
     $sth = $connect->query(
-    "SELECT b.id, title, c.name as category, bedroom_number, surface, price
+    "SELECT b.id, title, photo, c.name as category, bedroom_number, surface, price
     FROM biens as b
     LEFT JOIN categories as c ON b.category_id=c.id
     LEFT JOIN users as u ON b.author_id = u.id
@@ -25,16 +25,17 @@ try {
 
 <section id="products">
     <div class="container">
-        <div class="columns is-centered is-3">
+        <div class="columns is-centered">
             <div class="column is-flex is-flex-wrap-wrap">
                 <!-- <div class=""> -->
                     <?php
                         foreach ($locations as $location) {
                     ?>
-                    <div class="card is-4">
+                    <div class="card">
                         <a href="product.php?id=<?php echo $location['id'] ?>">
                             <div class="card-content">
                                 <h5><?php echo $location['title'] ?></h5>
+                                <img class="block" src="./assets/img/<?php echo $location['photo']?>" alt="photo de la maison">
                                 <p>Catégorie du bien : <?php echo $location['category'] ?></p>
                                 <p>Nombre de chambres : <?php echo $location['bedroom_number'] ?></p>
                                 <p>Surface en m2 : <?php echo $location['surface'] ?>m2</p>
