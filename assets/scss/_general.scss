@@ -4,8 +4,16 @@ h1 {
     text-align: center;
 }
 
+.container {
+    max-width: 1200px !important;
+}
+
 .content {
     margin: 4rem 0;
+}
+
+.card {
+    margin: 1rem;
 }
 
 #accueil {
@@ -14,78 +22,4 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-
-#product {
-    display: flex;
-    justify-content: center;
-
-    .content {
-        display: flex;
-        flex-wrap: wrap;
-
-        #nameproduct {
-            width: 100%;
-        }
-
-        >div {
-            padding: 2%;
-            width: 48%;
-        }
-
-        #photo {
-    
-            img {
-                width: 100%;
-            }
-        }
-        
-        #info {
-
-            #price {
-                font-size: 2rem;
-                font-weight: 600;
-                margin: 1rem 0;
-            }
-
-            #description {
-
-                >:nth-child(1) {
-                    font-weight: 600;
-                    font-size: 1.2rem;
-                }
-
-                >:nth-child(2) {
-                    margin: 1rem 0;
-                }
-            }
-
-        }
-        
-    }
-
-    
-
-
-
-}
-
-#profil {
-    display: flex;
-    justify-content: center;
-}
-
-#signin {
-
-    #login {
-        margin-bottom: 2rem;
-    }
-}
-
-#login {
-
-    #signin {
-        margin-bottom: 2rem;
-    }
 }

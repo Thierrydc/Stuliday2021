@@ -10875,8 +10875,16 @@ h1 {
   text-align: center;
 }
 
+.container {
+  max-width: 1200px !important;
+}
+
 .content {
   margin: 4rem 0;
+}
+
+.card {
+  margin: 1rem;
 }
 
 #accueil {
@@ -10885,50 +10893,6 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#product {
-  display: flex;
-  justify-content: center;
-}
-#product .content {
-  display: flex;
-  flex-wrap: wrap;
-}
-#product .content #nameproduct {
-  width: 100%;
-}
-#product .content > div {
-  padding: 2%;
-  width: 48%;
-}
-#product .content #photo img {
-  width: 100%;
-}
-#product .content #info #price {
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 1rem 0;
-}
-#product .content #info #description > :nth-child(1) {
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-#product .content #info #description > :nth-child(2) {
-  margin: 1rem 0;
-}
-
-#profil {
-  display: flex;
-  justify-content: center;
-}
-
-#signin #login {
-  margin-bottom: 2rem;
-}
-
-#login #signin {
-  margin-bottom: 2rem;
 }
 
 header nav {
