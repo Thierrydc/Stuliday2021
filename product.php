@@ -7,7 +7,7 @@ try {
 
     //? Création de ma requête SQL. Vu que j'ai des colonnes qui font référence à d'autres tables, je dois ajouter des jointures sur category et author. Je rajoute aussi la condition WHERE products_id = {$id} afin de récupérer le produit souhaité
     $sth = $connect->query(
-        "SELECT title, description, bedroom_number, surface, price, c.name as category
+        "SELECT title, photo, description, bedroom_number, surface, price, c.name as category
         FROM biens as b
         LEFT JOIN categories as c ON b.category_id = c.id
         WHERE b.id = {$id}
@@ -29,7 +29,7 @@ try {
             <div class="column is-8">
                 <div class="content">
                     <h1 class="block"><?php echo $annonce['title']; ?></h1>
-                    <img class="block" src="./assets/img/maison.jpg" alt="photo de la maison">
+                    <img class="block" src="./assets/img/<?php echo $annonce['photo'] ?>" alt="photo de la maison">
                     <p>A propos : <?php echo $annonce['description']; ?></p>
                     <p>Nombre de chambres : <?php echo $annonce['bedroom_number']; ?></p>
                     <p>Surface en m2 : <?php echo $annonce['surface']; ?></p>
