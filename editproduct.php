@@ -14,7 +14,6 @@
         WHERE b.id = {$id}");
     
     $location = $sth->fetch(PDO::FETCH_ASSOC);
-    // var_dump($location);
 
     //Vérification intro : si le bouton est cliqué et si le formulaire est rempli
     if(isset($_POST['submit']) 
@@ -32,15 +31,20 @@
         $price = intval(strip_tags($_POST['price']));
         $category = strip_tags($_POST['category']);
         $bedroom_number = intval(strip_tags($_POST['bedroom_number']));
+        $photo = strip_tags($_POST['photo']);
         $user_id = $_SESSION['id'];
 
         //Vérification du prix positif
         if(is_int($price) && $price > 0) {
+
             //? Etape 4 : Enregistrement des données du formulaire via une requete préparée sql INSERT
             try {
                //? Préparation de la requête, je définis la requête à exécuter avec des valeurs génériques (des paramètres nommés).
-               $sth = $connect->prepare("UPDATE biens SET title=:title,description=:description,bedroom_number=:bedroom_number,surface=:surface,price=:price,category_id=:category WHERE id = :id");
-                              
+               $sth = $connect->prepare(
+                   "UPDATE biens 
+                   SET title=:title,description=:description,bedroom_number=:bedroom_number,surface=:surface,price=:price,category_id=:category,photo=:photo
+                   WHERE id = :id");
+
                //? J'affecte chacun des paramètres nommés à leur valeur via un bindValue. Cette opération me protège des injections SQL (en + de l'assainissement des variables)
                $sth->bindValue(':title', $title);
                $sth->bindValue(':description', $description);
@@ -49,11 +53,12 @@
                $sth->bindValue(':price', $price);
                $sth->bindValue(':category', $category);
                $sth->bindValue(':id', $id);
-            //    $sth->bindValue(':author', $user_id);
+               $sth->bindValue(':photo', $photo);
 
                //? J'exécute ma requête SQL d'insertion avec execute()
                 $sth->execute();
                 $alert = true; $type="success"; $message = "Votre annonce a bien été modifiée";
+                header('Location:product.php?id=' . $id);
             } catch (PDOException $error) {
                 echo "Erreur : " . $error->getMessage();
             }
@@ -107,6 +112,10 @@
                                 }
                             ?>
                             </select>
+                        </div>
+                        <div class="field">
+                            <label for="inputPhoto">Photo</label>
+                            <input class="input" type="text" name="photo" id="inputPhoto" value="<?php echo $location['photo']?>">
                         </div>
                         <hr>
                         <div class="field">
