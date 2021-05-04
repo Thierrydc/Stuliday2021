@@ -40,6 +40,7 @@ try {
                                 <p>Nombre de chambres : <?php echo $location['bedroom_number'] ?></p>
                                 <p>Surface en m2 : <?php echo $location['surface'] ?>m2</p>
                                 <p>Prix de la location à la semaine : <?php echo $location['price'] ?>€</p>
+                                <a href="editproduct.php?id=<?php echo $location['id']; ?>" class="button">Modifier article</a>
                             </div>
                         </a>
                     </div>
