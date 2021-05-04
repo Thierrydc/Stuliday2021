@@ -31,7 +31,7 @@ try {
                     <?php
                         foreach ($locations as $location) {
                     ?>
-                    <div class="card">
+                    <div class="card content">
                         <a href="product.php?id=<?php echo $location['id'] ?>">
                             <div class="card-content">
                                 <h5><?php echo $location['title'] ?></h5>
