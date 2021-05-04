@@ -20,7 +20,7 @@
                     <a href=""><i class="fas fa-bars"></i></a>
                 </div>
                 <ul>
-                    <li><a href="products.php">Produits</a></li>
+                    <li><a href="products.php">Annonces</a></li>
                     <!-- //? Affichage conditionnel du bouton se connecter/ page de profil -->
                     <?php
                     if(empty($_SESSION)) {
