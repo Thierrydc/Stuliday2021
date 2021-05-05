@@ -5,11 +5,10 @@
     if(!empty($_SESSION)) {
         try {
             $user_id = $_SESSION['id'];
-            $sth = $connect->query("SELECT * FROM users WHERE id = {$user_id} AND role = 'ROLE_ADMIN'");
-            
-            if($isAdmin = $sth->fetch(PDO::FETCH_ASSOC)) {
-                $sth = $connect->query("SELECT * FROM users WHERE id != '{$user_id}'");
-                $users = $sth->fetchAll(PDO::FETCH_ASSOC);
+            $isAdmin = $connect->query("SELECT * FROM users WHERE id = {$user_id} AND role = 'ROLE_ADMIN'")->fetch(PDO::FETCH_ASSOC);
+
+            if($isAdmin) {
+                $users = $connect->query("SELECT * FROM users WHERE id != '{$user_id}'")->fetchAll(PDO::FETCH_ASSOC);
 
                 $sth = $connect->query(
                     "SELECT b.id, title, photo, c.name as category, bedroom_number, surface, price
