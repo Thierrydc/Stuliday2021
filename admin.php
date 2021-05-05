@@ -95,7 +95,14 @@
                                             <td><?php echo $bien['surface']?></td>
                                             <td><?php echo $bien['price']?></td>
                                             <td><a href="editproduct.php?id=<?php echo $bien['id']; ?>" class="button">Modify</a></td>
-                                            <td><a href="deleteproduct.php?id=<?php echo $bien['id']; ?>" class="button">Delete</a></td>
+                                            <!-- <td><a href="deleteproduct.php?id=<?php echo $bien['id']; ?>" class="button">Delete</a></td> -->
+                                            <td>
+                                                <form action="deleteproduct.php" method="post">
+                                                    <input type="hidden" name="csrf_token" value="<?php echo $token; ?>">
+                                                    <input type="hidden" name="id" value="<?php echo $bien['id'] ?>">
+                                                    <input type="submit" class="button" value="delete" name="delete">
+                                                </form>
+                                            </td>
                                         </tr>
                                     <?php
                                         }
