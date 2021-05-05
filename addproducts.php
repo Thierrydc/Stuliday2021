@@ -31,6 +31,7 @@
         $price = intval(strip_tags($_POST['price']));
         $category = strip_tags($_POST['category']);
         $bedroom_number = intval(strip_tags($_POST['bedroom_number']));
+        $photo = strip_tags($_POST['photo']);
         $user_id = $_SESSION['id'];
 
         //Vérification du prix positif
@@ -39,7 +40,7 @@
             try {
                //? Préparation de la requête, je définis la requête à exécuter avec des valeurs génériques (des paramètres nommés).
                $sth = $connect->prepare(
-                   "INSERT INTO biens (title, description, bedroom_number, surface, price, category_id, author_id) VALUES (:title, :description, :bedroom_number, :surface, :price, :category, :author)"
+                   "INSERT INTO biens (title, description, bedroom_number, surface, price, category_id, author_id, photo) VALUES (:title, :description, :bedroom_number, :surface, :price, :category, :author, :photo)"
                 );
                //? J'affecte chacun des paramètres nommés à leur valeur via un bindValue. Cette opération me protège des injections SQL (en + de l'assainissement des variables)
                $sth->bindValue(':title', $title);
@@ -49,6 +50,7 @@
                $sth->bindValue(':price', $price);
                $sth->bindValue(':category', $category);
                $sth->bindValue(':author', $user_id);
+               $sth->bindValue(':photo', $photo);
 
                //? J'exécute ma requête SQL d'insertion avec execute()
                 $sth->execute();
@@ -105,6 +107,10 @@
                                 }
                             ?>
                             </select>
+                        </div>
+                        <div class="field">
+                            <label for="inputPhoto">Photo du bien</label>
+                            <input class="input" type="texte" name="photo" id="inputPhoto">
                         </div>
                         <hr>
                         <div class="field">
