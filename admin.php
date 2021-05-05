@@ -1,14 +1,13 @@
 <?php include('inc/header.php'); ?>
 
 
-<!------------------------------------------ SECTION USERS ----------------------------------------------->
 <?php
     $alert=false;
     if(!empty($_SESSION)) {
         try {
             $user_id = $_SESSION['id'];
             $sth = $connect->query("SELECT * FROM users WHERE id = {$user_id} AND role = 'ROLE_ADMIN'");
-            // $isAdmin = $sth->fetch(PDO::FETCH_ASSOC);
+            
             if($isAdmin = $sth->fetch(PDO::FETCH_ASSOC)) {
                 $sth = $connect->query("SELECT * FROM users WHERE id != '{$user_id}'");
                 $users = $sth->fetchAll(PDO::FETCH_ASSOC);
