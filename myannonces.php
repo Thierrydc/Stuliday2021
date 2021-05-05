@@ -5,10 +5,9 @@
     if(!empty($_SESSION)) {
         try {
             $user_id = $_SESSION['id'];
-            $sth = $connect->query(
-                "SELECT * FROM users WHERE id = {$user_id}");
+            $isUser = $connect->query("SELECT * FROM users WHERE id = {$user_id}")->fetchcolumn();
 
-            if($isAuthor = $sth->fetch(PDO::FETCH_ASSOC)) {
+            if($isUser) {
                 $sth = $connect->query(
                     "SELECT b.id, title, photo, c.name as category, bedroom_number, surface, price
                     FROM biens as b
@@ -17,7 +16,6 @@
                     WHERE b.author_id = {$user_id}
                     ");
                 $biens = $sth->fetchAll(PDO::FETCH_ASSOC);
-            // var_dump($biens);
 ?>
 
 
@@ -53,7 +51,7 @@
                         <td><?php echo $bien['surface']?></td>
                         <td><?php echo $bien['price']?></td>
                         <td><a href="editproduct.php?id=<?php echo $bien['id']; ?>" class="button">Modify</a></td>
-                        <td><a href="deleteproduct.php?id=<?php echo $bien['id']; ?>" class="button">Delete</a></td>
+                        <td><a href="deleteproduct?id=<?php echo $bien['id']; ?>" class="button">Delete</a></td>
                     </tr>
                 <?php
                     }
@@ -79,4 +77,3 @@
     }
 
 ?>
-
