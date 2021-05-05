@@ -121,7 +121,7 @@
                         <td><?php echo $bien['surface']?></td>
                         <td><?php echo $bien['price']?></td>
                         <td><a href="editproduct.php?id=<?php echo $bien['id']; ?>" class="button">Modify</a></td>
-                        <td><span class="button">Delete</span></td>
+                        <td><a href="deleteproduct.php?id=<?php echo $bien['id']; ?>" class="button">Delete</a></td>
                     </tr>
                 <?php
                     }
