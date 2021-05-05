@@ -1,4 +1,4 @@
-<?php include('inc/config.php'); ?>
+<?php include('inc/header.php'); ?>
 
 <?php
 
@@ -15,16 +15,26 @@ if(!empty($_SESSION)) {
         
         if($isAdmin OR $isAuthor) {
             // $connect->query("DELETE FROM biens WHERE id={$productId}");
-            $alert = true; $type = "success"; $message = "L'annonce à bien été supprimée";
+            $alert = true; $type = "success"; $message = "L'annonce a bien été supprimée";
         } else {
             $alert = true; $type = "danger"; $message = "Vous n'avez pas l'autorisation de suppression !";
         }
 
     } catch (PDOException $error) {
-        echo "Erreur : " . $error->getMessage();
+        $alert=true; $type="warning"; $error->getMessage();
     }
 
 }
 ?>
 
-<?php require 'inc/alert.php' ?>
+<section id="addproducts">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-12">
+                <div class="content">
+                    <?php require 'inc/alert.php' ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

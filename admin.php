@@ -1,6 +1,5 @@
 <?php include('inc/header.php'); ?>
 
-
 <?php
     $alert=false;
     if(!empty($_SESSION)) {
@@ -21,87 +20,98 @@
                 $biens = $sth->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-                <section class="users-table container">
-                    <div class="columns is-centered">
-                        <div class="column is-12">
-                            <div class="content">
-                                <h2>Users</h2>
-                                <table class="table is-striped">
-                                    <thead>
+<section id="addproducts">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-12">
+                <div class="content">
+                    <?php require 'inc/alert.php' ?>
+                    <section class="users-table container">
+                        <div class="columns is-centered">
+                            <div class="column is-12">
+                                <div class="content">
+                                    <h2>Users</h2>
+                                    <table class="table is-striped">
+                                        <thead>
+                                            <tr>
+                                                <th># id</th>
+                                                <th>Username</th>
+                                                <th>Email</th>
+                                                <th>Role</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                    <?php
+                                        foreach ($users as $user) {
+                                    ?>
                                         <tr>
-                                            <th># id</th>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th>Role</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
+                                            <th><?php echo $user['id'] ?></th>
+                                            <td><?php echo $user['name'] ?></td>
+                                            <td><?php echo $user['email'] ?></td>
+                                            <td><?php echo $user['role'] ?></td>
+                                            <td><span class="button">Modify</span></td>
+                                            <td><span class="button">Delete</span></td>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                <?php
-                                    foreach ($users as $user) {
-                                ?>
-                                    <tr>
-                                        <th><?php echo $user['id'] ?></th>
-                                        <td><?php echo $user['name'] ?></td>
-                                        <td><?php echo $user['email'] ?></td>
-                                        <td><?php echo $user['role'] ?></td>
-                                        <td><span class="button">Modify</span></td>
-                                        <td><span class="button">Delete</span></td>
-                                    </tr>
-                                <?php
-                                    }
-                                ?>
-                                    </tbody>
-                                </table>
+                                    <?php
+                                        }
+                                    ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                <section class="users-table container">
-                    <div class="columns is-centered">
-                        <div class="column is-12">
-                            <div class="content">
-                                <h2>Locations</h2>
-                                <table class="table is-striped">
-                                    <thead>
+                    <section class="users-table container">
+                        <div class="columns is-centered">
+                            <div class="column is-12">
+                                <div class="content">
+                                    <h2>Locations</h2>
+                                    <table class="table is-striped">
+                                        <thead>
+                                            <tr>
+                                                <th># id</th>
+                                                <th>Title</th>
+                                                <th>Photo</th>
+                                                <th>Category</th>
+                                                <th>Bedroom number</th>
+                                                <th>Surface</th>
+                                                <th>Price</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                    <?php
+                                        foreach ($biens as $bien) {
+                                    ?>
                                         <tr>
-                                            <th># id</th>
-                                            <th>Title</th>
-                                            <th>Photo</th>
-                                            <th>Category</th>
-                                            <th>Bedroom number</th>
-                                            <th>Surface</th>
-                                            <th>Price</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
+                                            <th><?php echo $bien['id']?></th>
+                                            <td><?php echo $bien['title']?></td>
+                                            <td><?php echo $bien['photo']?></td>
+                                            <td><?php echo $bien['category']?></td>
+                                            <td><?php echo $bien['bedroom_number']?></td>
+                                            <td><?php echo $bien['surface']?></td>
+                                            <td><?php echo $bien['price']?></td>
+                                            <td><a href="editproduct.php?id=<?php echo $bien['id']; ?>" class="button">Modify</a></td>
+                                            <td><a href="deleteproduct.php?id=<?php echo $bien['id']; ?>" class="button">Delete</a></td>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                <?php
-                                    foreach ($biens as $bien) {
-                                ?>
-                                    <tr>
-                                        <th><?php echo $bien['id']?></th>
-                                        <td><?php echo $bien['title']?></td>
-                                        <td><?php echo $bien['photo']?></td>
-                                        <td><?php echo $bien['category']?></td>
-                                        <td><?php echo $bien['bedroom_number']?></td>
-                                        <td><?php echo $bien['surface']?></td>
-                                        <td><?php echo $bien['price']?></td>
-                                        <td><a href="editproduct.php?id=<?php echo $bien['id']; ?>" class="button">Modify</a></td>
-                                        <td><a href="deleteproduct.php?id=<?php echo $bien['id']; ?>" class="button">Delete</a></td>
-                                    </tr>
-                                <?php
-                                    }
-                                ?>
-                                    </tbody>
-                                </table>
+                                    <?php
+                                        }
+                                    ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <?php
             } else {
