@@ -26,7 +26,7 @@
             </div>
             <div class="column is-4">
                 <div class="content">
-                    <button type="button" class="button">Voir mes annonces publiées</button>
+                    <a href="myannonces?id=<?php echo $user['id']?>" type="button" class="button">Voir mes annonces publiées</a>
                     <a href="addproducts.php" class="button"> Ajouter une annonce </a>
                 </div>
             </div>
