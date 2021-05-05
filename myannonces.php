@@ -7,13 +7,14 @@
             $user_id = $_SESSION['id'];
             $sth = $connect->query(
                 "SELECT * FROM users WHERE id = {$user_id}");
-            // $isAdmin = $sth->fetch(PDO::FETCH_ASSOC);
-            if($isAdmin = $sth->fetch(PDO::FETCH_ASSOC)) {
+
+            if($isAuthor = $sth->fetch(PDO::FETCH_ASSOC)) {
                 $sth = $connect->query(
                     "SELECT b.id, title, photo, c.name as category, bedroom_number, surface, price
                     FROM biens as b
                     LEFT JOIN categories as c ON b.category_id=c.id
                     LEFT JOIN users as u ON b.author_id = u.id
+                    WHERE b.author_id = {$user_id}
                     ");
                 $biens = $sth->fetchAll(PDO::FETCH_ASSOC);
             // var_dump($biens);
