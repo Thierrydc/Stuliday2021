@@ -14,7 +14,7 @@ if(!empty($_SESSION)) {
         $isAdmin = $connect->query("SELECT role FROM users WHERE id={$user_id} AND role='ROLE_ADMIN'")->fetchColumn();
         
         if($isAdmin OR $isAuthor) {
-            $connect->query("DELETE FROM biens WHERE id={$productId}");
+            // $connect->query("DELETE FROM biens WHERE id={$productId}");
             $alert = true; $type = "success"; $message = "L'annonce à bien été supprimée";
         } else {
             $alert = true; $type = "danger"; $message = "Vous n'avez pas l'autorisation de suppression !";
