@@ -2,7 +2,7 @@
 
 <?php
     $alert=false;
-    if(!empty($_SESSION)) {
+    if(!empty($_SESSION['name'])) {
         try {
             $user_id = $_SESSION['id'];
             $isAdmin = $connect->query("SELECT * FROM users WHERE id = {$user_id} AND role = 'ROLE_ADMIN'")->fetch(PDO::FETCH_ASSOC);

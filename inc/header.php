@@ -23,7 +23,7 @@
                     <li><a href="products.php">Annonces</a></li>
                     <!-- //? Affichage conditionnel du bouton se connecter/ page de profil -->
                     <?php
-                    if(empty($_SESSION)) {
+                    if(empty($_SESSION['name'])) {
                     ?>
                         <li><a href="login.php">Se connecter</a></li>
                     <?php
