@@ -130,7 +130,7 @@
                         <div class="columns is-centered">
                             <div class="column is-12">
                                 <div class="content">
-                                    <h2>Categories</h2>
+                                    <h2>Categories</h2><a href="addcategories.php" class="button">Add</a>
                                     <table class="table is-striped">
                                         <thead>
                                             <tr>
