@@ -52,9 +52,10 @@
                         <td><?php echo $bien['price']?></td>
                         <td><a href="editproduct.php?id=<?php echo $bien['id']; ?>" class="button">Modify</a></td>
                         <td>
-                            <form action="deleteproduct.php" method="post">
+                            <form action="delete.php" method="post">
                                 <input type="hidden" name="csrf_token" value="<?php echo $token; ?>">
                                 <input type="hidden" name="id" value="<?php echo $bien['id'] ?>">
+                                <input type="hidden" name="table" value="biens">
                                 <input type="submit" class="button" value="delete" name="delete">
                             </form>
                         </td>

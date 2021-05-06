@@ -17,14 +17,16 @@
                     LEFT JOIN users as u ON b.author_id = u.id
                     ");
                 $biens = $sth->fetchAll(PDO::FETCH_ASSOC);
+                $categories = $connect->query('SELECT * FROM categories')->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<section id="addproducts">
+<div id="admin">
     <div class="container">
         <div class="columns is-centered">
             <div class="column is-12">
                 <div class="content">
                     <?php require 'inc/alert.php' ?>
+                    <!--------------------  SECTION USERS -------------------->
                     <section class="users-table container">
                         <div class="columns is-centered">
                             <div class="column is-12">
@@ -51,7 +53,14 @@
                                             <td><?php echo $user['email'] ?></td>
                                             <td><?php echo $user['role'] ?></td>
                                             <td><span class="button">Modify</span></td>
-                                            <td><span class="button">Delete</span></td>
+                                            <td>
+                                                <form action="delete.php" method="post">
+                                                    <input type="hidden" name="csrf_token" value="<?php echo $token; ?>">
+                                                    <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
+                                                    <input type="hidden" name="table" value="users">
+                                                    <input type="submit" class="button" value="delete" name="delete">
+                                                </form>
+                                            </td>
                                         </tr>
                                     <?php
                                         }
@@ -63,6 +72,7 @@
                         </div>
                     </section>
 
+                    <!--------------------  SECTION LOCATIONS -------------------->
                     <section class="users-table container">
                         <div class="columns is-centered">
                             <div class="column is-12">
@@ -97,9 +107,10 @@
                                             <td><a href="editproduct.php?id=<?php echo $bien['id']; ?>" class="button">Modify</a></td>
                                             <!-- <td><a href="deleteproduct.php?id=<?php echo $bien['id']; ?>" class="button">Delete</a></td> -->
                                             <td>
-                                                <form action="deleteproduct.php" method="post">
+                                                <form action="delete.php" method="post">
                                                     <input type="hidden" name="csrf_token" value="<?php echo $token; ?>">
                                                     <input type="hidden" name="id" value="<?php echo $bien['id'] ?>">
+                                                    <input type="hidden" name="table" value="biens">
                                                     <input type="submit" class="button" value="delete" name="delete">
                                                 </form>
                                             </td>
@@ -113,11 +124,54 @@
                             </div>
                         </div>
                     </section>
+                    
+                    <!--------------------  SECTION CATEGORIES -------------------->
+                    <section class="users-table container">
+                        <div class="columns is-centered">
+                            <div class="column is-12">
+                                <div class="content">
+                                    <h2>Categories</h2>
+                                    <table class="table is-striped">
+                                        <thead>
+                                            <tr>
+                                                <th># id</th>
+                                                <th>Name</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                    <?php
+                                        foreach ($categories as $category) {
+                                    ?>
+                                        <tr>
+                                            <th><?php echo $category['id']?></th>
+                                            <td><?php echo $category['name']?></td>
+                                            <td><a href="editproduct.php?id=<?php echo $bien['id'] ?>" class="button">Modify</a></td>
+                                            <td>
+                                                <form action="delete.php" method="post">
+                                                    <input type="hidden" name="csrf_token" value="<?php echo $token; ?>">
+                                                    <input type="hidden" name="id" value="<?php echo $category['id'] ?>">
+                                                    <input type="hidden" name="table" value="categories">
+                                                    <input type="submit" class="button" value="delete" name="delete">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                        }
+                                    ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <?php
             } else {
