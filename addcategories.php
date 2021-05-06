@@ -12,13 +12,13 @@
         $name = strip_tags($_POST['name']);
            
         try {
-               
-               $sth = $connect->prepare(
+                $sth = $connect->prepare(
                    "INSERT INTO categories (name) VALUES (:name)"
                 );
-               $sth->bindValue(':name', $name);
+                $sth->bindValue(':name', $name);
                 $sth->execute();
-                $alert = true; $type="success"; $message = "La catégorie a bien été ajoutée";
+                $alert = true; $type="success"; $message = 'La catégorie a été ajoutée';
+                header('Location:admin.php');
             } catch (PDOException $error) {
                 echo "Erreur : " . $error->getMessage();
             }
