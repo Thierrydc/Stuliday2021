@@ -147,7 +147,7 @@
                                         <tr>
                                             <th><?php echo $category['id']?></th>
                                             <td><?php echo $category['name']?></td>
-                                            <td><a href="editproduct.php?id=<?php echo $bien['id'] ?>" class="button">Modify</a></td>
+                                            <td><a href="editcategory.php?id=<?php echo $category['id'] ?>" class="button">Modify</a></td>
                                             <td>
                                                 <form action="delete.php" method="post">
                                                     <input type="hidden" name="csrf_token" value="<?php echo $token; ?>">

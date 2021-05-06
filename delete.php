@@ -18,12 +18,12 @@ if(isset($_POST['delete']) && $_POST['csrf_token'] == $token) {
 
         if($isAdmin) {
             $sth = $connect->prepare("DELETE FROM {$table} WHERE id={$itemId}");
-            // $sth->execute();
+            $sth->execute();
             $alert = true; $type = "success"; $message = "L'entité a bien été supprimée";
             header('Location:' . $_SERVER['HTTP_REFERER']);
         } elseif($isAuthor) {
             $sth->prepare("DELETE FROM biens WHERE id={$itemId}");
-            // $sth->execute();
+            $sth->execute();
             $alert = true; $type = "success"; $message = "L'annonce a bien été supprimée";
             header('Location:' . $_SERVER['HTTP_REFERER']);
         } else {
