@@ -35,7 +35,7 @@ try {
                         <a href="product.php?id=<?php echo $location['id'] ?>">
                             <div class="card-content">
                                 <h5><?php echo $location['title'] ?></h5>
-                                <img class="block" src="./public/uploads/<?php echo (!empty($location['photo'])? $location['photo'] : 'pasdephoto.jpg')?>" alt="photo de la maison">
+                                <img class="block" src="<?php echo (!empty($location['photo'])? "./public/uploads/".$location['photo'] : 'assets/img/pasdephoto.jpg')?>" alt="photo de la maison">
                                 <p>Catégorie du bien : <?php echo $location['category'] ?></p>
                                 <p>Nombre de chambres : <?php echo $location['bedroom_number'] ?></p>
                                 <p>Surface en m2 : <?php echo $location['surface'] ?>m2</p>

@@ -36,7 +36,7 @@
         
         //Vérification du prix positif
         if(is_int($price) && $price > 0) {
-            //? Etape 4 : Enregistrement des données du formulaire via une requete préparée sql INSERT
+            
             // Vérification du fichier uploadé
             if(!empty($photo)) {
                 if($photo['size'] > 0 && $photo['size'] <= 1000000) { //vérification de la taille du fichier

@@ -37,6 +37,21 @@
         //Vérification du prix positif
         if(is_int($price) && $price > 0) {
 
+            // Vérification du fichier uploadé
+            if(!empty($photo)) {
+                if($photo['size'] > 0 && $photo['size'] <= 1000000) { //vérification de la taille du fichier
+                    $valid_extensions = ['jpg', 'jpeg', 'png'];
+                    $get_extension = strtolower(substr(strrchr($photo['name'], '.'), 1));
+                    if(in_array($get_extension, $valid_extensions)) { //vérification extension du fichier
+                        $photo_name = uniqid() . '_' . $photo['name'];
+                        $upload_dir = "./public/uploads/";
+                        $upload_name = $upload_dir . $photo_name;
+                        $upload_result = move_uploaded_file($photo['tmp_name'], $upload_name);
+                    }
+                } else {
+                    $photo_name = "";
+                }
+            }
             //? Etape 4 : Enregistrement des données du formulaire via une requete préparée sql INSERT
             try {
                //? Préparation de la requête, je définis la requête à exécuter avec des valeurs génériques (des paramètres nommés).
@@ -114,8 +129,8 @@
                             </select>
                         </div>
                         <div class="field">
-                            <label for="inputPhoto">Photo</label>
-                            <input class="input" type="text" name="photo" id="inputPhoto" value="<?php echo $location['photo']?>">
+                            <label for="inputPhoto">Photo du bien</label>
+                            <input class="input" type="file" name="photo" id="inputPhoto" accept=".png, jpg, jpeg" value="<?php echo $location['photo']?>">
                         </div>
                         <hr>
                         <div class="field">
