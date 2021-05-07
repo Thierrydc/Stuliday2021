@@ -10899,6 +10899,27 @@ h1 {
   max-width: 30% !important;
 }
 
+#editproduct #photo > div {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin: 1rem;
+}
+#editproduct #photo img {
+  max-width: 300px;
+}
+#editproduct #photo input {
+  width: 150px;
+  border: 0;
+  margin-left: 1rem;
+}
+#editproduct #photo .file {
+  margin-left: 1rem;
+}
+#editproduct #photo span {
+  padding-left: 1rem;
+}
+
 header nav {
   background-color: white;
   height: 80px;

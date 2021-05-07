@@ -27,3 +27,31 @@ h1 {
 #products .card {
     max-width: 30% !important;    
 }
+
+#editproduct #photo {
+    
+    &>div {
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        margin: 1rem;
+    }
+
+    img {
+        max-width: 300px;
+    }
+
+    input {
+        width: 150px;
+        border: 0;
+        margin-left: 1rem;
+    }
+
+    .file {
+        margin-left: 1rem;
+    }
+    
+    span {
+        padding-left: 1rem;
+    }
+}

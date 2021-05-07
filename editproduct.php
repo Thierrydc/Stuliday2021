@@ -87,7 +87,7 @@
 //? Je redirige vers la page des produits.
 -->
 
-<section id="addproducts">
+<section id="editproduct">
     <div class="container">
         <div class="columns is-centered">
             <div class="column is-12">
@@ -128,9 +128,25 @@
                             ?>
                             </select>
                         </div>
-                        <div class="field">
+                        
+                        <div id="photo" class="field">
                             <label for="inputPhoto">Photo du bien</label>
-                            <input class="input" type="file" name="photo" id="inputPhoto" accept=".png, jpg, jpeg" value="<?php echo $location['photo']?>">
+                            <div>
+                                <img src="<?php echo (!empty($location['photo'])? "./public/uploads/".$location['photo'] : 'assets/img/pasdephoto.jpg')?>" alt="">
+                                <div class="file has-name is-fullwidth">
+                                <label class="file-label">
+                                    <input class="file-input" type="file" name="photo" id="inputPhoto" accept=".png, jpg, jpeg">
+                                    <span class="file-cta">
+                                    <span class="file-icon">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                    <span class="file-label">
+                                        Choose a file…
+                                    </span>
+                                    </span>
+                                </label>
+                                </div>
+                            </div>
                         </div>
                         <hr>
                         <div class="field">
