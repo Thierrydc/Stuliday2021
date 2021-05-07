@@ -33,54 +33,51 @@
         $bedroom_number = intval(strip_tags($_POST['bedroom_number']));
         $user_id = $_SESSION['id'];
         $photo = $_FILES['photo'];
-
-        // Vérification du fichier uploadé
         
-        if(!empty($photo)) {
-            echo "<pre>";
-            var_dump($photo);
-            echo "</pre>";
-
-            if($photo['size'] > 0 && $photo['size'] <= 1000000) { //vérification de la taille du fichier
-                $valid_extensions = ['jpg', 'jpeg', 'png'];
-                $get_extension = strtolower(substr(strrchr($photo['name'], '.'), 1));
-                if(in_array($get_extension, $valid_extensions)) {
-                    $photo_name = uniqid() . '_' . $photo['name'];
-                    $upload_dir = "./public/uploads/";
-                    $upload_name = $upload_dir . $photo_name;
-                    $upload_result = move_uploaded_file($photo['tmp_name'], $upload_name);
-                    if($upload_result) {  // Insertion dans la BDD
-                        //Vérification du prix positif
-                        if(is_int($price) && $price > 0) {
-                            //? Etape 4 : Enregistrement des données du formulaire via une requete préparée sql INSERT
-                            try {
-                            //? Préparation de la requête, je définis la requête à exécuter avec des valeurs génériques (des paramètres nommés).
-                            $sth = $connect->prepare(
-                                "INSERT INTO biens (title, description, bedroom_number, surface, price, category_id, author_id, photo) VALUES (:title, :description, :bedroom_number, :surface, :price, :category, :author, :photo)"
-                                );
-                            //? J'affecte chacun des paramètres nommés à leur valeur via un bindValue. Cette opération me protège des injections SQL (en + de l'assainissement des variables)
-                            $sth->bindValue(':title', $title);
-                            $sth->bindValue(':description', $description);
-                            $sth->bindValue(':bedroom_number', $bedroom_number);
-                            $sth->bindValue(':surface', $surface);
-                            $sth->bindValue(':price', $price);
-                            $sth->bindValue(':category', $category);
-                            $sth->bindValue(':author', $user_id);
-                            $sth->bindValue(':photo', $photo['name']);
-
-                            //? J'exécute ma requête SQL d'insertion avec execute()
-                                $sth->execute();
-                                $alert = true; $type="success"; $message = "Votre annonce a bien été ajoutée";
-                            } catch (PDOException $error) {
-                                echo "Erreur : " . $error->getMessage();
-                            }
-                        }
+        //Vérification du prix positif
+        if(is_int($price) && $price > 0) {
+            //? Etape 4 : Enregistrement des données du formulaire via une requete préparée sql INSERT
+            // Vérification du fichier uploadé
+            if(!empty($photo)) {
+                if($photo['size'] > 0 && $photo['size'] <= 1000000) { //vérification de la taille du fichier
+                    $valid_extensions = ['jpg', 'jpeg', 'png'];
+                    $get_extension = strtolower(substr(strrchr($photo['name'], '.'), 1));
+                    if(in_array($get_extension, $valid_extensions)) { //vérification extension du fichier
+                        $photo_name = uniqid() . '_' . $photo['name'];
+                        $upload_dir = "./public/uploads/";
+                        $upload_name = $upload_dir . $photo_name;
+                        $upload_result = move_uploaded_file($photo['tmp_name'], $upload_name);
                     }
+                } else {
+                    $photo_name = "";
                 }
-            } else {  
-                $error = true; $type = "warning"; $message = "La taille de votre photo est trop grande (10Mo max)";
             }
-        } 
+
+            try {
+            //? Préparation de la requête, je définis la requête à exécuter avec des valeurs génériques (des paramètres nommés).
+            $sth = $connect->prepare(
+                "INSERT INTO biens (title, description, bedroom_number, surface, price, category_id, author_id, photo) VALUES (:title, :description, :bedroom_number, :surface, :price, :category, :author, :photo)"
+                );
+            //? J'affecte chacun des paramètres nommés à leur valeur via un bindValue. Cette opération me protège des injections SQL (en + de l'assainissement des variables)
+            $sth->bindValue(':title', $title);
+            $sth->bindValue(':description', $description);
+            $sth->bindValue(':bedroom_number', $bedroom_number);
+            $sth->bindValue(':surface', $surface);
+            $sth->bindValue(':price', $price);
+            $sth->bindValue(':category', $category);
+            $sth->bindValue(':author', $user_id);
+            $sth->bindValue(':photo', $photo_name);
+
+            //? J'exécute ma requête SQL d'insertion avec execute()
+                $sth->execute();
+                $alert = true; $type="success"; $message = "Votre annonce a bien été ajoutée";
+            } catch (PDOException $error) {
+                echo "Erreur : " . $error->getMessage();
+            }
+        }
+
+        
+
      }
 ?>
 <!--

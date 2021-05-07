@@ -29,7 +29,7 @@ try {
             <div class="column is-8">
                 <div class="content">
                     <h1 class="block"><?php echo $annonce['title']; ?></h1>
-                    <img class="block" src="./assets/img/<?php echo $annonce['photo'] ?>" alt="photo de la maison">
+                    <img class="block" src="./public/uploads/<?php echo (!empty($location['photo'])? $location['photo'] : 'pasdephoto.jpg')?>" alt="photo de la maison">
                     <p>A propos : <?php echo $annonce['description']; ?></p>
                     <p>Nombre de chambres : <?php echo $annonce['bedroom_number']; ?></p>
                     <p>Surface en m2 : <?php echo $annonce['surface']; ?></p>
